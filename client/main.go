@@ -1,9 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"client/globals"
 	"client/utils"
 	"log"
+	"os"
+	"strings"
 )
 
 func main() {
@@ -13,6 +16,9 @@ func main() {
 	globals.ClientConfig = utils.IniciarConfiguracion("config.json")
 	log.Println("hola soy un log")
 	// validar que la config este cargada correctamente
+	if globals.ClientConfig == nil {
+		log.Fatalf("No se pudo cargar la configuración")
+	}
 	// loggeamos el valor de la config
 	log.Println(globals.ClientConfig.Mensaje)
 	// ADVERTENCIA: Antes de continuar, tenemos que asegurarnos que el servidor esté corriendo para poder conectarnos a él
@@ -20,6 +26,17 @@ func main() {
 	// enviar un mensaje al servidor con el valor de la config
 
 	// leer de la consola el mensaje
+	for {
+		reader := bufio.NewReader(os.Stdin)
+		text, _ := reader.ReadString('\n')
+		text = strings.TrimSpace(text)
+		log.Print(text)
+
+		if text == "" {
+			log.Println("se ingresó una línea vacía, terminando con el programa.")
+			break
+		}
+	}
 	// utils.LeerConsola()
 
 	// generamos un paquete y lo enviamos al servidor
