@@ -13,9 +13,8 @@ func main() {
 	globals.ClientConfig = utils.IniciarConfiguracion("config.json")
 	log.Println("hola soy un log")
 	// validar que la config este cargada correctamente
-
 	// loggeamos el valor de la config
-
+	log.Println(globals.ClientConfig.Mensaje)
 	// ADVERTENCIA: Antes de continuar, tenemos que asegurarnos que el servidor esté corriendo para poder conectarnos a él
 
 	// enviar un mensaje al servidor con el valor de la config
