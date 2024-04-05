@@ -24,7 +24,7 @@ func main() {
 	// ADVERTENCIA: Antes de continuar, tenemos que asegurarnos que el servidor esté corriendo para poder conectarnos a él
 
 	// enviar un mensaje al servidor con el valor de la config
-
+	utils.EnviarMensaje(globals.ClientConfig.Ip, globals.ClientConfig.Puerto, globals.ClientConfig.Mensaje)
 	// leer de la consola el mensaje
 	for {
 		reader := bufio.NewReader(os.Stdin)
@@ -37,8 +37,8 @@ func main() {
 			break
 		}
 	}
-	// utils.LeerConsola()
+	//utils.LeerConsola()
 
 	// generamos un paquete y lo enviamos al servidor
-	// utils.GenerarYEnviarPaquete()
+	utils.GenerarYEnviarPaquete()
 }
