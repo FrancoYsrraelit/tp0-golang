@@ -3,6 +3,7 @@ package main
 import (
 	"client/globals"
 	"client/utils"
+	"log"
 )
 
 func main() {
@@ -10,6 +11,7 @@ func main() {
 
 	// loggear "Hola soy un log" usando la biblioteca log
 	globals.ClientConfig = utils.IniciarConfiguracion("config.json")
+	log.Println("hola soy un log")
 	// validar que la config este cargada correctamente
 
 	// loggeamos el valor de la config
